@@ -1,0 +1,22 @@
+8/29
+C compilation Model:
+
+1. The preprocessor it removes comments, Interprets preprocessor directives  given by the #
+examples: #include #define 
+
+2. Compliler: Source Code -> Assembly
+3. Assembler: Assembly Code -> Machine Code
+4. Link Editor: Links any library references
+
+9/03
+A pointer is a variable that holds a memory address. 
+C uses pinters for arrays, structures, functions, data structures.
+
+two important operators
+the star operator(*) the dereferencing operator
+the and operator (&) address of operator
+
+9/24/2013
+timeout for slow programs
+
+week 5 number 2
