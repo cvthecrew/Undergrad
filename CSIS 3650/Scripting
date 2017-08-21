@@ -1,0 +1,17 @@
+Scripting
+This is only one example of how we can automate tasks through scripting. This example is for nmap:
+
+nmapScript.JPG
+
+Line 1: this is the nmap command using the SYN scan (-sS) options, scanning the whole subnet range of IP addresses (192.168.1.0/24). It is scanning for port 53, and sends the output (-oG) to a grep-able file named "dn".
+
+Line 2: takes the results of line 1 and searches (greps) for the word "open" and saves the results in the file named dn1
+
+Line 3: takes line 2 results and removes extraneous information leaving just the IP Addresses of the servers with port 53 open. Outputs the results to the file named dn53.
+
+Lines 4-6: loops through the dn53 with another nmap command to find service/version information (-sV).
+
+Here are a couple of websites to help you get more familiar with scripting:
+
+A Beginners Handbook (http://www.freeos.com/guides/lsst/)Links to an external site.
+Advanced Bash-Scripting Guide (http://tldp.org/LDP/abs/html/)Links to an external site.
