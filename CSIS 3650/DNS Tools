@@ -1,0 +1,20 @@
+This page contains information that will help you work with DNS servers (Domain Name Services). There are a number of tools that can be used, the first one is NSLOOKUP.
+
+In nslookup you can resolve domain names to IP addresses and perform other useful functions. One useful function is to perform a zone transfer. Here is how you do that. (These steps are done on your Linux Attack Server)
+
+Step 1: run nslookup in a command prompt window.
+
+nslookup_launch.PNG
+
+
+Step 2: You need to set the DNS server that your computer looks at to resolve names. This needs to be your target server IP address. The following is the syntax for doing this, the IP address you use will be different.﻿
+
+Step 3: Now we need to request the zone file of our target domain. Remember your target domain is based on the computer name that you set when you created your server. (e.g. rob_robertson_target.com) The syntax for the zone transfer is: ls -d domain.com. This will just print the zone information to your screen. Optionally you can print the results to a file. To do that, the syntax is: ls -d domain.com > file.txt where the file.txt is the name of the file you want to save the results in. This above statement will save the file in the current directory on your Linux Attack server.
+
+Sam Spade is another tool (GUI based) that you can use to work with DNS information on computers. This is a free download.
+
+DIG is a Linux-based tool that allows you to perform the same functions as nslookup, and many more. Here is a sample dig command you can use to gather information (performs a zone transfer) from a DNS server:
+
+dig @IP_Address domain.com axfr
+
+Where IP_Address is the IP of the DNS server that houses the domain.com name.
