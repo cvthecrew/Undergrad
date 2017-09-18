@@ -1,0 +1,32 @@
+Slide 1:
+	Introduce Everyone, what we are presenting 
+
+Slide 2:
+	Stacks are a type of container adaptor, specifically designed to operate in a LIFO context (last-in first-out), 
+	where elements are inserted and extracted only from one end of the container. queues are a type of container adaptor, 
+	specifically designed to operate in a FIFO context (first-in first-out), where elements are inserted into one end of the container and 
+	extracted from the other.
+Slide 3:
+	Priority queues are a type of container adaptors, specifically designed such that its first element is always the greatest of the elements 
+	it contains, according to some strict weak ordering criterion. This context is similar to a heap, where elements can be inserted at any moment, 
+	and only the max heap element can be retrieved (the one at the top in the priority queue). Priority queues are implemented as container adaptors, 
+	which are classes that use an encapsulated object of a specific container class as its underlying container, providing a specific set of member 
+	functions to access its elements. Elements are popped from the "back" of the specific container, which is known as the top of the priority queue.
+Slide 4:
+	Developed by David A Huffman PHD in 1952. "A Method for the Construction of Minimum-Redundancy Codes". 
+	A lossless data compression algorithm which uses a small number of bits to encode common characters. Huffman coding approximates the probability 
+	for each character as a power of 1/2 to avoid complications associated with using a nonintegral number of bits to encode characters using their 
+	actual probabilities.
+Slide 5:
+	we displayed ours differently than the conventional huffman code. Frankly it was easier. Do an Example on the board.
+Slide 6:
+	
+	Takes Input
+	Splits Characters and Frequencies Using a TreeMap
+	Put it into the Priority Queue
+	Took values out of the Priority Queue Sorted by frequency (priority).
+	Printed the Values.
+Slide 7:
+	Go over the code!
+Slide 8:
+	END!
