@@ -1,0 +1,28 @@
+Queue Application:
+
+1. process queues.
+2. PRint IP packets
+3. Routing IP packets
+
+linear Data Structures:
+Singly Linked List 
+Stacks
+Queus
+
+Non-linear Data Structures 
+Binary Search trees
+
+HW- 38, 52, 32, 77, 51, 73, 76, 00, 42, 34
+
+TreeNode:
+Must a data section.
+Must have two pointers to nodes.
+
+Usually the "data" is a "key"
+
+Terminology for trees:
+Root node 
+levels 
+left subtree
+child nodes
+parent nodes
