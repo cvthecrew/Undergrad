@@ -1,0 +1,195 @@
+Week Two Activity 1: 
+CSIS 3600
+Alexander Cannell
+
+cd
+ls
+ls -al
+exit
+mitty
+mintty
+ls -al
+pwd
+exit
+set
+cmd
+hel
+help
+cal
+cal 1
+cal 2014
+cal 1752
+source .bashrc
+exit
+exit
+newshell
+newshell
+exit
+ls
+$path
+$PATH
+ls
+exit
+history
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+ps
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+ps
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+ps
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+ps
+exit
+newshell
+exit
+exit
+history
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+ps
+cd /usr/sbin
+ls
+/usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+ps
+ls
+cat -v typescript
+cat typescript
+ls -al
+cat typescript
+exit
+script
+cat typescript
+od -cb typescript > octaldump
+touch cleantext
+ls
+ls
+cleantext typescript
+./cleantext typescript
+./cleantext typescript
+which gawk
+./cleantext typescript
+which awk
+./cleantext typescript
+cd /usr/bin
+./cleantext typescript
+cd ..
+cd ..
+cd ..
+cd ...
+cd
+source ~/.bashrc
+./cleantext typescript
+cleantext typescript
+cleantext typescript
+gawk '/core/ {print $0}' datafile01
+cd awk-lesson/
+gawk '/core/ {print $0}' datafile01
+gawk '/core/ {print $2}' datafile01
+gawk '/core/ {print $1}' datafile01
+ls -al | gawk '{print $8, print $5}' datafile01
+ls -al | gawk '{print $8 $5}' datafile01
+ls -al | gawk '{print $8 $5}' 
+ls
+ls -al | gawk '{print $8 " " $5}' 
+gawk '/eagle/ {system("ls -al")}' datafile01
+gawk '/eagle/ {system("notepad")}' datafile01
+exit
+script
+cat cleantypescript 
+cat typescript 
+cd awk
+ls
+which gawk
+ls
+cd bin
+ls
+cd ...
+cd ..
+ls
+cd awk
+cd awk-lesson/
+ls
+gawk '/cor/ {print $0}' datafile01
+which find
+pwd
+find 
+find | wc
+find . > contents.txt
+cat contents.txt 
+find . -name '*.txt'
+find . -mtime -1
+find . -mtime -7
+find . -name '*.txt' -exec cp {} ~/myfile \; 
+ls
+cd myfile
+cd myfile 
+ls
+cat myfile 
+find . -name '*.txt' | cat > out.txt
+ls
+cat out.txt
+find . -name '*.txt' | xargs cat > out.txt
+cat out.txt
+find . -name '*.txt' | xargs cat > ha/out.txt
+ls
+find . -name '*.txt' | xargs cat > ../out.txt
+cd ..
+ls
+cat out.txt 
+find . -maxdepth -1 -name '*.txt' 
+find . -maxdepth 1 -name '*.txt' 
+cd /
+find . -maxdepth 1 -name '*.txt' 
+cd /cygdrive/c
+find . -maxdepth 1 -name '*.txt' 
+find . -maxdepth 3 -name '*.txt' 
+find . -maxdepth 3 -name '*.txt' 2>/dev/null
+cd /cygdrive/l
+ls
+cd Computer
+cd Computer\ Lab\ Solutions/
+ls
+cd ..
+cd System\ Volume\ Information/
+cat System\ Volume\ Information/
+ls
+mkdir week12
+cd week12/
+ls
+which tar
+tar cvf week08.tar ha
+ls
+tar cvf week08.tar.gz ha
+ls
+mkdir tm
+ls
+mv week08.* tm
+ls
+cd tm
+ls
+tar xvf week08.tar
+ls
+tar xvfz week08.tar
+ls
+rm -f week08
+ls
+tar xvfz week08.tar.gz 
+rm -rf week08.tar.gz 
+ls
+tar cvfz week08.tar.gz week08
+tar cvfz week08.tar.gz weekm
+tar cvfz week08.tar.gz tm
+tar cvfz week08.tar.gz tm
+grep "Regular" Regular-Expression.txt
+grep -in "Regular" Regular-Expression.txt
+grep -in "Regular" regular-expression.txt
+grep -in "AWK" regular-expression.txt
+cd ..
+grep -n "" regular-expression.txt
+ls
+cd ..
+ls
+grep -in "AWK" regular-expression.txt
+grep -n "Portable .*" regular-expression.txt
+grep -n "Portable .*" regular-expressions.txt
+grep -n "Portable .* Interface" regular-expressions.txt

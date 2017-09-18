@@ -1,0 +1,31 @@
+Week One CSIS 3600
+Alexander Cannell
+
+cd
+ls
+ls -al
+exit
+mitty
+mintty
+ls -al
+pwd
+exit
+set
+cmd
+hel
+help
+cal
+cal 1
+cal 2014
+cal 1752
+source .bashrc
+exit
+exit
+newshell
+newshell
+exit
+ls
+$path
+$PATH
+ls
+exit

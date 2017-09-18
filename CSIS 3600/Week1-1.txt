@@ -1,0 +1,77 @@
+Week One CSIS 3600
+Alexander Cannell
+
+1. WMP11.AssocFile.MP3="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /prefetch:6 /Open "%L"
+	Windows Media Player mp3 files wmplayer.exe 
+	
+2. WindowsLive.PhotoGallery.jpg.16.4="C:\Program Files (x86)\Windows Live\Photo Gallery\WLXPhotoGallery.exe" /LaunchPhotoViewer /v "%1"
+	WindowsLive Photo Gallery jpg files WLXPhotoGallery.exe
+
+3. QuickTime.mp4=C:\Program Files (x86)\QuickTime\QuickTimePlayer.exe "%1"
+	QuickTime mp4 files QuickTimePlayer.exe
+	
+4. QuickTime.avi=C:\Program Files (x86)\QuickTime\QuickTimePlayer.exe "%1"
+	QuickTime AVI files QuickTimePlayer.exe
+
+5. iTunes.mp3="C:\Program Files (x86)\iTunes\iTunes.exe" /open "%L"
+	ITunes mp3 files iTunes.exe 
+
+6.	GIMP-2.8-xcf="C:\Program Files\GIMP 2\bin\gimp-2.8.exe" "%1"
+	GIMP XCF files gimp-2.8.exe
+
+7.	FirefoxHTML="C:\Program Files (x86)\Mozilla Firefox\firefox.exe" -osint -url "%1"
+	Firefox HTML files firefox.exe
+
+8.  WMP11.AssocFile.wma="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /prefetch:5 /Open "%L"
+	Windows Media Player wma files wmplayer.exe 
+
+9. 	WMP11.AssocFile.AVI="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /prefetch:8 /Open "%L"
+	Windows Media Player AVI files wmplayer.exe 
+
+10. WMP11.AssocFile.WAV="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /Open "%L"
+	Windows Media Player WAV files wmplayer.exe 
+
+11. QuickTime.mp4=C:\Program Files (x86)\QuickTime\QuickTimePlayer.exe "%1"
+	QuickTime mp4 files QuickTimePlayer.exe
+
+12. iTunes.mov="C:\Program Files (x86)\iTunes\iTunes.exe" /open "%L"
+	ITunes mov files iTunes.exe
+
+13. QuickTime.jpg=C:\Program Files (x86)\QuickTime\PictureViewer.exe "%1"
+	QuickTime JPG files QuickTimePlayer.exe
+
+14. QuickTime.png=C:\Program Files (x86)\QuickTime\PictureViewer.exe "%1"
+	QuickTime png files QuickTimePlayer.exe
+	
+15. QuickTime.mp2=C:\Program Files (x86)\QuickTime\QuickTimePlayer.exe "%1"
+	QuickTime mp2 files QuickTimePlayer.exe
+
+16. WindowsLive.PhotoGallery.png.16.4="C:\Program Files (x86)\Windows Live\Photo Gallery\WLXPhotoGallery.exe" /LaunchPhotoViewer /v "%1"
+	Windows Media Player PNG files wmplayer.exe 
+
+17. WMP11.AssocFile.MPEG="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /prefetch:9 /Open "%L"
+	Windows Media Player MPEG files wmplayer.exe 
+
+18. WMP11.AssocFile.wma="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /prefetch:5 /Open "%L"
+	Windows Media Player WMA files wmplayer.exe 
+
+19. WMP11.AssocFile.AVI="%ProgramFiles(x86)%\Windows Media Player\wmplayer.exe" /prefetch:8 /Open "%L" //Didnt know that
+	Windows Media Player AVI files wmplayer.exe 
+
+20. PhotoViewer.FileAssoc.Jpeg=%SystemRoot%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1
+	PhotoViewer JPEG files PhotoViewer.dll
+
+22. PhotoViewer.FileAssoc.JFIF=%SystemRoot%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1
+	PhotoViewer JFIF files PhotoViewer.dll
+	
+23. PhotoViewer.FileAssoc.Bitmap=%SystemRoot%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1
+	PhotoViewer BITMAP files PhotoViewer.dll
+
+24. PhotoViewer.FileAssoc.Wdp=%SystemRoot%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1
+	PhotoViewer WDP files PhotoViewer.dll
+	
+25. PhotoViewer.FileAssoc.Png=%SystemRoot%\System32\rundll32.exe "%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll", ImageView_Fullscreen %1
+	PhotoViewer PNG files PhotoViewer.dll
+
+Did you find any malware?
+NO I DIDNT!

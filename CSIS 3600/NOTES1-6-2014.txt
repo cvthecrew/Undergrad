@@ -1,0 +1,588 @@
+Interoperability
+
+1. Virtual Machine Technology: 
+VMWARE
+Zen
+VirtualBox
+HyperV
+Qemu
+
+2. Emulation Layers:
+CYGWIN
+DOSBox
+
+3. Effective intercommunication protocols:
+SAMBA
+
+Command Shell: Viewports into your OS
+Bash for Unix: A viewports onto many thousands of commands 
+CMD: a view port onto about one hundred commands
+PowerShell: a view port onto 600 commands that look like unix
+
+doskey changes commands example doskey ls = dir
+path shows where the device is looking
+
+1/8/2014
+Operating Systems provide an abstraction layer
+	Desktops
+	Personal Computers
+	Cell Phones 
+	Web Servers
+	Super computers
+
+Operating Systems:
+	Linux
+	iOS
+	Windows 
+	BSD
+	Android
+	
+Different Classes of OS:
+	Desktop
+	Distributed - is software over a collection of independent, networked, communicating, and physically separate computational nodes. 
+	Embedded Systems - Routers, Cell Phones, Pagers....
+
+Command for new command prompt mintty
+ls -al brings up everything in a folder including hidden ones
+.bash_history looks back at all your past commands
+pwd command brings up where you currently are
+
+script command alias assigns it a new name
+echo is how you relay comments to the user
+	example: alias newshell=mintty
+			echo "To start a nice terminal type: newshell"
+
+cal brings up the calendar  then include the year too. 
+
+
+1/13/2014
+Processor Management
+terms:
+Processor is CPU
+
+Program is an sequence of instructions often called a job. (static)
+
+a process is an instace of a program being run on the CPU also called a task
+
+a modern OS can apparently run many processes at the same time: Multi tasking at its finest
+
+Preemptive Multi-Tasking
+
+When a process starts, we place a pointer to the PCB(Process Control Block) in a node, and insert it at the end of the queue.
+
+when the CPU is ready, it runs the process at the front of the queue for a time quanta (10ms). when this time is complete, the process is prempted and enough data is stored in the PCB to restart it.
+
+Context switch: doing what is necessary to switch one process out and another one in. 
+
+suppose a CPU does 1 billion operations/sec. 10^9 operation/sec. 
+we give it 10ms. 10^-2. it can do 10 million operations.
+
+consider the cat command. it can display 50 lines/sec, 100 char/line. 
+
+5000 char/sec. 2 instructions/char. 10000 instructions/sec. 10^4. if we can do 10^9 instructions/sec. 
+
+I/O devices are incredibly slow compared to the CPU. Example: The common HD is about 100 to 10000 times slower. 
+
+
+
+1/15/2014
+cp is the copy command example cp old.txt newname.txt
+
+diff tells the differents between files example diff old.txt newname.txt
+
+Special Characters in unix:
+~ home directory
+# comment
+$ use to get contents of a variable
+* wildcard, regular expressions: zero or more of
+| pipe
+; shell command separator
+> output redirection operator
+< input redirection operator
+
+useful control keys
+CNTL-C stop current command
+CNTL-D end of output
+CNTL-S Halt output to screen
+CNTL-Q restarts output to screen
+CNTL-Z suspends current commands
+
+1/17/2014
+PS1 can change the eviorment variable # we changed it to ->
+
+
+1/22/2014
+Prcessor Management:
+preemptive multitasking with multilevel queues.
+there is a practical problem: Deadlock
+
+Deadlock is a problem occuring when the resources needed for job A are held by job B, which in turn is waiting for resources held by job A before it can finish. Both processes are in permanend 'HOLD'
+
+four conditions for deadlock to occur:
+mutual exclusion: only one rocess is allowd access to a given resource.
+resource holding: a prcess doesnt relinquish the resources it holds until its execution is completed.
+no preemption: a process is allowed to hold resources while waitin for oher resources to becoe available.
+circular wait: set of one or more processes each waiting for one another. 
+
+Detecting and dealing with deadlocks is called "process synchrnization"
+
+one common way to detect deadlock is to find cycles in a process resource graph. 
+
+once a deadlock is detected the os must reove it. the apporach is called a recovery algorithm.
+
+all recovery algorithms require a "victim" process. 
+
+2-5-2014
+Memory Management
+
+Memory allocation schemes: embedded systems
+
+Single User Systems
+Fixed Partitions
+Dynamic Partitions
+Relocatable Partitions
+
+Single User:
+	ex. DOS
+	
+	If your program is too big, you are out of luck.
+	You can only run one program at a time.
+	
+Fixed Partitions:
+	Partitions sizes are set at startup.
+	Each partition can hold at most one program.
+	We will need a job scheduler.
+	Problem: Internal Fragmentation
+	
+Dynamic Partitions:
+	Problem: External Fragmentation
+	
+Relocateable Dynamic Partitions
+	Memory Manager must:
+		1. For each program it moves, it talks to the process manager and has execution halted.
+		2. Pysically move the program in memory.
+		3. Restart the program.
+		4. Book keeping: know the addresses of the start and end of each program.
+		
+Key Terms:
+
+	1.	Best Fit Memory Allocation: Look at all free blocks and choose the one which wastes the least.
+	2.	Base Register: This stores the memory address of the beginning of a program.
+	3.	Bounds Register: Stores the location of the highest memory address accessible by a program.
+	4.	Compaction: Removing the fragments.
+	5.	Dynamic Partitions:
+	6.	External Fragmentation:
+	7.	First Fit Memory Allocation:
+	8.	Fixed Partitions:
+	9.	Internal Fragmentation:
+	10.	Main Memory:
+	11.	Relocatable Dynamic Partitions:
+	12.	Relocation Register: A register that stores the shift in a program's base register.
+
+
+
+2/10/2014
+
+Memory Management II
+paging 
+segmentation
+virtual memory
+
+The hard drive is divided into equal areas called blocks 1k is common. the hard drive controler can efficiently locate and transfer blocks.
+
+divide RAM into "pages" all of the same size. usually 1k size.
+
+it completely eliminates fragmentation and the rblem f requiring all the program to be in RAM. 
+
+to make this work we need:
+job tabe: a list f al open jobs and their sizes
+page map table: for each ob, which page is in which page frame? 
+memory map table: for each page frame in RAM, is it used or not? 
+
+virtual memry: only part of the program needs to be in RAM in order to be executing it.
+
+schemes fr implementing virtua memor:
+demand paging: 
+the rogram counter keeps track of the address f the last insruction. 
+when the memory manager detects that a necessary page is nt loaded into RAM, it issues a page fault. it consults the memory map table to see where an empty frame is. if there are no empty frames, one gets kicked out. 
+
+page replacement policies: 
+first in first out
+least recently used
+
+if the page frame that we decide to kick out has been odified, the corresponding block must be rewritten on the hard drive. 
+
+working set: often a large amount of time is spent in a few pages. your os may pull in the workign set when it recognizes a rogram that has run before.
+
+most prgrams can be divided into functions or modules. these are called segments. compilers usually give relative addresses of each segment. when a program is called the first segment is loaded. if our memory manager discovers that a needed segment is not in RAM, it issues a "segmentation fault". the memory manager mus ad in he new segment. if necessary it must remove existing segments.
+
+advantages of virtual memory:
+1. job size isnt restricted to the size or RAM.
+2. dont have fragmentaton. efficient use of memory.
+3. we can run many more processes at the same time.
+
+
+2/12/2014
+alexandercannell@ELC310-31 ~
+$ cat > test1
+NOW IS THE TIME TO PANIC!
+
+alexandercannell@ELC310-31 ~
+$ cat > test2
+IM SEXY AND I KNOW IT
+
+alexandercannell@ELC310-31 ~
+$ cat test1 test 2 > test3
+cat: test: No such file or directory
+cat: 2: No such file or directory
+
+alexandercannell@ELC310-31 ~
+$ cat test1 test2 > test3
+
+alexandercannell@ELC310-31 ~
+$ cat test3
+NOW IS THE TIME TO PANIC!
+IM SEXY AND I KNOW IT
+
+alexandercannell@ELC310-31 ~
+$ mv test1 test4
+
+alexandercannell@ELC310-31 ~
+$ ls
+test2  test3  test4
+
+alexandercannell@ELC310-31 ~
+$ cp test2 testcp
+
+alexandercannell@ELC310-31 ~
+$ ls
+test2  test3  test4  testcp
+
+alexandercannell@ELC310-31 ~
+$ rm test3
+
+alexandercannell@ELC310-31 ~
+$ ls
+test2  test4  testcp
+
+alexandercannell@ELC310-31 ~
+$ alias
+alias lsa='ls -al'
+alias mywork='cd /home/alexandercannell/HW'
+alias newshell='mintty'
+
+alexandercannell@ELC310-31 ~
+$ pwd
+/home/alexandercannell
+
+alexandercannell@ELC310-31 ~
+$ whoami
+alexandercannell
+
+alexandercannell@ELC310-31 ~
+$ ls -al
+total 288
+drwxr-xr-x 1 alexandercannell Domain Users    0 Feb  7 15:52 .
+drwxr-xr-x 1 alexandercannell Domain Users    0 Feb  7 15:33 ..
+-rw-r--r-- 1 alexandercannell Domain Users  638 Feb  7 15:54 .bash_history
+-rw-r--r-- 1 alexandercannell Domain Users 1154 Jan 17 15:24 .bash_profile
+-rw-r--r-- 1 alexandercannell Domain Users 4141 Jan 17 15:34 .bashrc
+-rw-r--r-- 1 alexandercannell Domain Users 1919 Jan 31 15:30 .inputrc
+-rw-r--r-- 1 alexandercannell Domain Users   15 Jan  8 15:35 .minttyrc
+-rw-r--r-- 1 alexandercannell Domain Users 1236 Jan 31 15:30 .profile
+-rw-r--r-- 1 alexandercannell Domain Users   22 Feb 12 15:05 test2
+-rw-r--r-- 1 alexandercannell Domain Users   26 Feb 12 15:04 test4
+-rw-r--r-- 1 alexandercannell Domain Users   22 Feb 12 15:08 testcp
+
+alexandercannell@ELC310-31 ~
+$ wc .bashrc
+
+alexandercannell@ELC310-31 ~
+$ cat * | wc
+      3      18      70
+
+alexandercannell@ELC310-31 ~
+$ ps
+      PID    PPID    PGID     WINPID   TTY     UID    STIME COMMAND
+     2116    2640    2116       1416  pty0    24669 15:03:13 /usr/bin/bash
+     2096       1    2096       2096  cons0   24669 15:03:02 /usr/bin/bash
+     2100    2116    2100       5696  pty0    24669 15:15:13 /usr/bin/ps
+     2640    2096    2640       5192  cons0   24669 15:03:13 /usr/bin/mintty
+
+alexandercannell@ELC310-31 ~
+$ which od
+/usr/bin/od
+
+alexandercannell@ELC310-31 ~
+$ od -cb test2
+0000000   I   M       S   E   X   Y       A   N   D       I       K   N
+        111 115 040 123 105 130 131 040 101 116 104 040 111 040 113 116
+0000020   O   W       I   T  \n
+        117 127 040 111 124 012
+0000026
+
+alexandercannell@ELC310-31 /proc
+$ cat /proc/meminfo
+MemTotal:        4150324 kB
+MemFree:         2194396 kB
+HighTotal:             0 kB
+HighFree:              0 kB
+LowTotal:        4150324 kB
+LowFree:         2194396 kB
+SwapTotal:       4150324 kB
+SwapFree:        4083832 kB
+
+alexandercannell@ELC310-31 /proc
+$ cat /proc/cpuinfo
+
+
+alexandercannell@ELC310-31 /proc
+$ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+E:/test/bin      1966816  1780032    186784  91% /usr/bin
+E:/test/lib      1966816  1780032    186784  91% /usr/lib
+E:/test          1966816  1780032    186784  91% /
+C:             244196348 41950676 202245672  18% /cygdrive/c
+E:               1966816  1780032    186784  91% /cygdrive/e
+F:                102400    83880     18520  82% /cygdrive/f
+G:                200000        0    200000   0% /cygdrive/g
+L:                 65532    13372     52160  21% /cygdrive/l
+
+
+alexandercannell@ELC310-31 ~
+$ eventvwr
+
+alexandercannell@ELC310-31 ~
+$ netstat
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    127.0.0.1:27015        ELC310-31:49261        ESTABLISHED
+  TCP    127.0.0.1:49152        ELC310-31:49153        ESTABLISHED
+  TCP    127.0.0.1:49153        ELC310-31:49152        ESTABLISHED
+  TCP    127.0.0.1:49186        ELC310-31:49187        ESTABLISHED
+  TCP    127.0.0.1:49187        ELC310-31:49186        ESTABLISHED
+  TCP    127.0.0.1:49261        ELC310-31:27015        ESTABLISHED
+  TCP    134.250.74.131:49185   134.250.2.210:2214     ESTABLISHED
+  TCP    134.250.74.131:49207   134.250.12.13:524      ESTABLISHED
+  TCP    134.250.74.131:49209   134.250.12.13:524      ESTABLISHED
+  TCP    134.250.74.131:49216   KBOX1:52230            ESTABLISHED
+  TCP    134.250.74.131:49246   134.250.11.165:524     ESTABLISHED
+  TCP    134.250.74.131:49249   134.250.11.169:524     ESTABLISHED
+  TCP    134.250.74.131:49346   channelproxy-shv-06-frc1:https  ESTABLISHED
+  TCP    134.250.74.131:49422   a23-63-226-147:https   ESTABLISHED
+  TCP    134.250.74.131:49423   a23-63-226-147:https   ESTABLISHED
+  TCP    134.250.74.131:49522   a23-63-226-136:https   ESTABLISHED
+  TCP    134.250.74.131:49523   a23-63-226-136:https   ESTABLISHED
+  TCP    134.250.74.131:49524   a23-63-226-136:https   ESTABLISHED
+  TCP    134.250.74.131:49529   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49530   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49531   ord08s10-in-f28:https  ESTABLISHED
+  TCP    134.250.74.131:49533   ord08s10-in-f0:http    ESTABLISHED
+  TCP    134.250.74.131:49537   ord08s10-in-f0:http    ESTABLISHED
+  TCP    134.250.74.131:49555   cache:http             TIME_WAIT
+  TCP    134.250.74.131:49558   a23-207-34-110:https   ESTABLISHED
+  TCP    134.250.74.131:49575   ord08s10-in-f4:http    ESTABLISHED
+  TCP    134.250.74.131:49576   50.31.164.188:http     ESTABLISHED
+  TCP    134.250.74.131:49586   a23-63-226-136:https   ESTABLISHED
+  TCP    134.250.74.131:49587   a23-218-157-27:https   ESTABLISHED
+  TCP    134.250.74.131:49591   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49592   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49599   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49600   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49601   cache:https            ESTABLISHED
+  TCP    134.250.74.131:49608   a23-218-157-26:https   ESTABLISHED
+  TCP    134.250.74.131:49610   edge-star-shv-06-ord1:https  ESTABLISHED
+  TCP    134.250.74.131:49612   xx-fbcdn-shv-03-ord1:https  ESTABLISHED
+  TCP    134.250.74.131:49613   xx-fbcdn-shv-04-ord1:https  ESTABLISHED
+  TCP    134.250.74.131:49616   a23-63-227-43:https    ESTABLISHED
+  TCP    134.250.74.131:49617   204.1.137.200:https    ESTABLISHED
+  TCP    134.250.74.131:49621   ec2-54-243-232-125:http  TIME_WAIT
+  TCP    134.250.74.131:49622   server-205-251-203-124:http  ESTABLISHED
+  TCP    134.250.74.131:49623   ord08s09-in-f4:http    TIME_WAIT
+  TCP    134.250.74.131:49624   ord08s09-in-f4:http    TIME_WAIT
+  TCP    134.250.74.131:49625   ord08s09-in-f4:http    TIME_WAIT
+  TCP    134.250.74.131:49626   ec2-50-19-104-197:http  TIME_WAIT
+  TCP    134.250.74.131:49627   ec2-50-19-104-197:http  TIME_WAIT
+  TCP    134.250.74.131:49628   ec2-50-19-104-197:http  TIME_WAIT
+  TCP    134.250.74.131:49629   ord08s10-in-f8:http    TIME_WAIT
+  TCP    134.250.74.131:49630   ord08s10-in-f8:http    TIME_WAIT
+  TCP    134.250.74.131:49638   cache:http             TIME_WAIT
+  TCP    134.250.74.131:49639   ord08s10-in-f6:http    TIME_WAIT
+  TCP    134.250.74.131:49640   ord08s10-in-f6:http    TIME_WAIT
+  TCP    134.250.74.131:49641   ord08s10-in-f8:http    TIME_WAIT
+  TCP    134.250.74.131:49642   ord08s10-in-f8:http    TIME_WAIT
+  TCP    134.250.74.131:49643   140.197.248.77:http    TIME_WAIT
+  TCP    134.250.74.131:49644   140.197.248.77:http    TIME_WAIT
+  TCP    134.250.74.131:49645   140.197.248.77:http    TIME_WAIT
+  TCP    134.250.74.131:49646   140.197.248.77:http    TIME_WAIT
+  TCP    134.250.74.131:49647   140.197.248.77:http    TIME_WAIT
+  TCP    134.250.74.131:49648   140.197.248.77:http    TIME_WAIT
+  TCP    134.250.74.131:49649   ord08s10-in-f14:http   TIME_WAIT
+  TCP    134.250.74.131:49650   ord08s10-in-f14:http   TIME_WAIT
+  TCP    134.250.74.131:49651   ord08s10-in-f7:http    TIME_WAIT
+  TCP    134.250.74.131:49652   ord08s10-in-f7:http    TIME_WAIT
+  TCP    134.250.74.131:49653   ord08s10-in-f7:http    TIME_WAIT
+  TCP    134.250.74.131:49654   ord08s10-in-f1:http    TIME_WAIT
+  TCP    134.250.74.131:49655   ord08s10-in-f1:http    TIME_WAIT
+  TCP    134.250.74.131:49656   lax17s01-in-f17:http   TIME_WAIT
+  TCP    134.250.74.131:49657   lax17s01-in-f17:http   TIME_WAIT
+  TCP    134.250.74.131:49658   ord08s10-in-f8:https   ESTABLISHED
+  TCP    134.250.74.131:49662   channelproxy-shv-06-frc1:https  ESTABLISHED
+  TCP    134.250.74.131:49663   a23-63-226-226:https   ESTABLISHED
+  TCP    134.250.74.131:49664   a23-218-157-185:https  ESTABLISHED
+  TCP    134.250.74.131:49665   a23-218-157-186:https  ESTABLISHED
+  TCP    134.250.74.131:49666   a23-218-157-186:https  ESTABLISHED
+  TCP    134.250.74.131:49668   a23-63-226-27:https    ESTABLISHED
+
+ 
+ 2/19/2014
+ file systems
+ the file manager must:
+ 1. kep track of where every file is stored in secondary storage
+ 2. allocate a file only to thse authorized for its use
+ 3. implement these commands at he very least:
+ ope
+ close 
+ creat
+ delete
+ read
+ write
+ rename
+ copy
+ 
+ definition: the file manager allocates a file by activating the approprate secondary storage device, loading the file into ram and updating its time stamp.
+ 
+ definition: it deallocates a file by updating the file tables and rewriting the file to secondary storage.
+ 
+ definition: A data file is a group of related rocrds that contain information to be used by specific application programs.
+ 
+ definition: a rogram file contains execuable programs
+ 
+ definition: direcories are special files with listings of filename and attributes.
+ 
+ virtural file system: 
+ 
+ none of the command is trivial:
+ A simple "read" instruction involves:
+ A) check the file table for the physical location of the file. 
+ B) working with the approprate device driver, cause the read/write heads to move to the correct cylinder and sector where the file starts. 
+ C) activate the read/write head.
+ D)transfer the record.
+ E) set the flag o indicate the device is free to satisfy another request.
+ 
+ definition: each file strage unit, removable or not, is called a volume. 
+ 
+ each volume has a data structure at the begining called the "volume descriptor". creation date, volume name, pointer to the direcory area, pointer to the file area.immediately after this is the master file directory
+for everyfile we have a file name, type, size, location, date and time of creation, owner, access restrictions.
+
+most volumes usually have the following:
+block status table(block is free or not)
+file-block table: which blocks are allcaed to a given file.
+
+the file manager is continually interacting with other subsystems in the OS:
+Example: the file manager allocates a file to a single user.
+A) the file manager has to resolve the physical address of the file o be retrieved and passes this to the device manager.
+B) the device manager turns on the device driver for the approrate storage device. which will activate reading the file. put a portion of it into a IO buffer. 
+C) the memory manageer moves that into ram.
+D) wil communicate to the memory manager when it is finished, and tell that it is finished.  
+
+
+2/26/2014
+AWK programs are data driven. describe the data which you are given and what you can do with it. this is in contrast to procedural programs. 
+an AWK program consist of a series of rules.
+Rules have this form:
+pattern{Action}
+
+3/17/2014
+program consists of rules like this:
+pattern {action}
+
+special built in variables:
+RS: Record separator
+NR: Number of records so far
+NF: number of fields so far
+FS: Field separator
+
+tr ',' '  < elementsv1 > elementsv2
+
+03/19/2014
+$ find
+./.inputrc
+./.profile
+./ha
+./ha/.bash_profile
+./ha/.bashrc
+./.minttyrc
+./.bash_history
+./.bashrc
+./.bash_profile
+./typescript
+./octaldump
+./tempfile?
+./output?
+./bin
+./cleantext
+./tempfile
+./cleantypescript
+./text2html
+./text2htmlv2
+./awk-lesson
+./awk-lesson/datafile02
+./awk-lesson/Elements.csv
+./awk-lesson/datafile01
+
+$ find . > contents.txt
+./.inputrc
+./.profile
+./ha
+./ha/.bash_profile
+./ha/.bashrc
+./.minttyrc
+./.bash_history
+./.bashrc
+./.bash_profile
+./typescript
+./octaldump
+./tempfile
+./output
+./bin
+./cleantext
+./tempfile
+./cleantypescript
+./text2html
+./text2htmlv2
+./awk-lesson
+./awk-lesson/datafile02
+./awk-lesson/Elements.csv
+./awk-lesson/datafile01
+./contents.txt
+
+$ find . -name '*.txt'
+./contents.txt
+
+(all the files accessed in the last 7 days)
+$ find . -mtime -7 
+./.bash_history
+./contents.txt
+
+(copying text files into a specific location)
+$ find . -name '*.txt' -exec cp {} ~/myfile \; 
+
+$ find . -name '*.txt' | xargs cat > ../out.txt
+
+
+3/24/2014
+ter switches
+c: create 
+v: verbose
+f: use the following file 
+z: compress
+x: extract
+t: list contents
+r: append
+
+globally search a regular expression
+
+
